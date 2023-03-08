@@ -14,18 +14,32 @@ int main()
     }
     printf("IntVector array\n data = %p\n size = %ld\n capacity = %ld\n", array->data, array->size, array->capacity);
     IntVector *a = int_vector_copy(array);
-	  printf("Vector a = data:%p\n",a->data);
+    printf("IntVector a\n data = %p\n size = %ld\n capacity = %ld\n", a->data, a->size, a->capacity);
 	  for (int i = 0; i < array->capacity; i++) {
 		  printf("%d\n", a->data[i]);
     }
-    printf("IntVector a\n data = %p\n size = %ld\n capacity = %ld\n", a->data, a->size, a->capacity);
+    int_vector_free(a);
+    printf("vector a\n");
+    printf("%p\n",a);
+    for (int i = 0; i < array->capacity; i++) {
+		  printf("%d\n", a->data[i]);
+    }
     printf("\n");
+    printf("Get Item\n");
+    int z;
+    z = int_vector_get_item(array,1);
+    printf("%d\n",z);
     printf("IntVector array\n data = %p\n size = %ld\n capacity = %ld\n", array->data, array->size, array->capacity);
     int_vector_set_item(array,2,7);
     for (int i = 0; i < array->capacity; i++) {
 		  printf("%d\n", array->data[i]);
     }
+    size_t s = int_vector_get_size(array);
+    size_t jos = int_vector_get_capacity(array);
+    printf("size array = %ld\n",s);
+    printf("capacity array = %ld\n",jos);
     printf("\n");
+    printf("IntVector array\n data = %p\n size = %ld\n capacity = %ld\n", array->data, array->size, array->capacity);
     int_vector_push_back(array,10);
     for (int i = 0; i < array->size; i++) {
 		  printf("%d\n", array->data[i]);

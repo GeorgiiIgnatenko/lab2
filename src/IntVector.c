@@ -148,21 +148,21 @@ int int_vector_resize(IntVector *v, size_t new_size)
     }   
     return 0;
 }
-int int_vector_reserve(IntVector *v, size_t new_capacity)
-{
-    if (new_capacity > v->capacity)
+    int int_vector_reserve(IntVector *v, size_t new_capacity)
     {
-        v->capacity = new_capacity;
-        int *z = realloc(v->data,new_capacity*sizeof(int));
-        if (!z)
+        if (new_capacity > v->capacity)
+        {
+            v->capacity = new_capacity;
+            int *z = realloc(v->data,new_capacity*sizeof(int));
+            if (!z)
+            {
+                return -1;
+            }
+            v->data = z;
+            return 0;
+        }
+        else
         {
             return -1;
         }
-        v->data = z;
-        return 0;
     }
-    else
-    {
-        return -1;
-    }
-}
