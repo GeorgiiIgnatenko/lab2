@@ -71,5 +71,6 @@ int main()
     {
 		  printf("%d\n", array->data[i]);
     }
+    int_vector_free(array);
     return 0;
 }
