@@ -71,12 +71,12 @@ int int_vector_push_back(IntVector *v, int item)
     }
     else
     {
-        v->capacity = v->capacity * 2;
-        int *z = realloc(v->data,v->capacity * sizeof(int));
+        int *z = realloc(v->data,(v->capacity*2) * sizeof(int));
         if (!z)
         {
             return -1;
         }
+        v->capacity = v->capacity * 2;
         v -> data = z;
         v -> data[v->size] = item;
         v -> size++;
@@ -103,12 +103,12 @@ int int_vector_shrink_to_fit(IntVector *v)
 {
     if (v->size < v->capacity)
     {
-        v->capacity = v->size;
         int *z = realloc(v->data,v->size *sizeof(int));
         if (!z)
         {
             return -1;
         }
+        v->capacity = v->size;
         v->data = z;
         return 0;
     }
@@ -148,21 +148,21 @@ int int_vector_resize(IntVector *v, size_t new_size)
     }   
     return 0;
 }
-    int int_vector_reserve(IntVector *v, size_t new_capacity)
+int int_vector_reserve(IntVector *v, size_t new_capacity)
+{
+    if (new_capacity > v->capacity)
     {
-        if (new_capacity > v->capacity)
-        {
-            v->capacity = new_capacity;
-            int *z = realloc(v->data,new_capacity*sizeof(int));
-            if (!z)
-            {
-                return -1;
-            }
-            v->data = z;
-            return 0;
-        }
-        else
+        int *z = realloc(v->data,new_capacity*sizeof(int));
+        if (!z)
         {
             return -1;
         }
+        v->capacity = new_capacity;
+        v->data = z;
+        return 0;
     }
+    else
+    {
+        return -1;
+    }
+}

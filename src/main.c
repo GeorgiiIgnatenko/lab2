@@ -18,7 +18,6 @@ int main()
 	  for (int i = 0; i < array->capacity; i++) {
 		  printf("%d\n", a->data[i]);
     }
-    int_vector_free(a);
     printf("vector a\n");
     printf("%p\n",a);
     for (int i = 0; i < array->capacity; i++) {
@@ -72,5 +71,6 @@ int main()
 		  printf("%d\n", array->data[i]);
     }
     int_vector_free(array);
+    int_vector_free(a);
     return 0;
 }
