@@ -58,13 +58,13 @@ int main()
     {
 		  printf("%d\n", array->data[i]);
     }
-    int_vector_resize(array,10);
+    int_vector_reserve(array,40);
     printf("IntVector array\n data = %p\n size = %ld\n capacity = %ld\n", array->data, array->size, array->capacity);
     for (int i = 0; i < array->size; i++) 
     {
 		  printf("%d\n", array->data[i]);
     }
-    int_vector_reserve(array,40);
+    int_vector_resize(array,10);
     printf("IntVector array\n data = %p\n size = %ld\n capacity = %ld\n", array->data, array->size, array->capacity);
     for (int i = 0; i < array->size; i++) 
     {
