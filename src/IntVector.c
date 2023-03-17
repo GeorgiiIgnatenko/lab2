@@ -87,16 +87,7 @@ void int_vector_pop_back(IntVector *v)
 {
     if (v->size > 0)
     {
-        size_t s = v->size;
-        s = s-1;
-        size_t j = v->capacity;
-        IntVector *z = int_vector_new(j);
-        for(int i = 0; i<s; i++)
-        {
-            z->data[i] = v->data[i];
-        }
-        *v = *z;
-        v->size = s;
+	v->size--;
     }
 }
 int int_vector_shrink_to_fit(IntVector *v)
