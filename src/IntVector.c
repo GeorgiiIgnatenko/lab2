@@ -143,3 +143,12 @@ int int_vector_reserve(IntVector *v, size_t new_capacity)
         return -1;
     }
 }
+void print_vector(IntVector *v)
+{
+	for(int i = 0; i<v->size;i++)
+		printf("%d ",v->data[i]);
+	printf("\n");
+	printf("IntVector  \n data = %p\n size = %ld\n capacity = %ld\n", v->data, v->size, v->capacity);
+	printf("\n");
+}
+	

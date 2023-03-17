@@ -17,3 +17,4 @@ void int_vector_pop_back(IntVector *v);
 int int_vector_shrink_to_fit(IntVector *v);
 int int_vector_resize(IntVector *v, size_t new_size);
 int int_vector_reserve(IntVector *v, size_t new_capacity);
+void print_vector(IntVector *v);
